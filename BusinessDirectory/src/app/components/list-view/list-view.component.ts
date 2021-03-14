@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Business } from 'src/app/models/business';
 import { DataService } from 'src/app/services/data.service';
 
@@ -8,10 +9,12 @@ import { DataService } from 'src/app/services/data.service';
   templateUrl: './list-view.component.html',
   styleUrls: ['./list-view.component.scss']
 })
-export class ListViewComponent implements OnInit {
+export class ListViewComponent implements OnInit, OnDestroy {
 
   public businessArray: Business[] = [];
   public columnsToDisplay = ['name', 'description'];
+  private subscriptions: Subscription[] = [];
+
   constructor(
     private dataService: DataService,
     private router: Router) { }
@@ -20,11 +23,17 @@ export class ListViewComponent implements OnInit {
     const getDataSub = this.dataService.getData().subscribe(data => {
       this.businessArray = data;
     });
+
+    this.subscriptions.push(getDataSub);
   }
 
   onRowClicked() {
-    console.log('clicked');
     this.router.navigateByUrl('/item-view')
   }
 
+  ngOnDestroy() {
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
+  }
 }
