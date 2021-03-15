@@ -1,4 +1,16 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #f8f8fa;
+}
+
+.header-container {
+  width: 100%;
+}
+
 .content-container {
-    padding: 40px 40px 0px 40px;
-    background-color: #f8f8fa;
+  flex: 1 auto;
+  overflow: auto;
+  margin: 40px 40px 0px 40px;
 }
