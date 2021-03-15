@@ -14,3 +14,16 @@
   overflow: auto;
   margin: 40px 40px 0px 40px;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border: 1px solid #eaeaec; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #bdbdc2; 
+  border-radius: 8px;
+}
