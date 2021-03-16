@@ -21,14 +21,14 @@ export class ListViewComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     const getDataSub = this.dataService.getData().subscribe(data => {
-      this.businessArray = data;
+      this.businessArray = data.items;
     });
 
     this.subscriptions.push(getDataSub);
   }
 
-  onRowClicked() {
-    this.router.navigateByUrl('/item-view')
+  onRowClicked(row: Business) {
+    this.router.navigateByUrl('/item-view', {state: {data: row}})
   }
 
   ngOnDestroy() {

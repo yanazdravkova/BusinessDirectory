@@ -10,6 +10,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { ItemViewComponent } from './components/item-view/item-view.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { effects } from './effects';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot(effects),
+    !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [],
   bootstrap: [AppComponent]
