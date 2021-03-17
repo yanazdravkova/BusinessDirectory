@@ -22,20 +22,14 @@
         <p>{{ business?.email }}</p>
       </div>
     </div>
-    <div fxFlex="50" fxLayout="column" class="nearby-places">
+    <div fxFlex="50" fxLayout="column" fxLayoutGap="30px" class="nearby-places">
       <p class="title">Nearby Places</p>
-      <div fxLayout="column" fxLayoutWrap="wrap">
-       
-<table mat-table class="table-content" [dataSource]="nearbyPlaces">
-  <ng-container matColumnDef="name">
-    <td mat-cell *matCellDef="let business">{{ business.name }}</td>
-  </ng-container>
+      <div fxLayout="column wrap" fxFlex="80" fxFlexAlign="space-between" fxLayoutGap="10px">
+        <div *ngFor="let place of nearbyPlaces" fxLayoutAlign="space-around center" fxFlex="20" class="place">
+          <div fxFlex="30">{{place.name}}</div>
+          <div fxFlex="70">{{place.address?.country}}</div>
+        </div>
 
-  <ng-container matColumnDef="description">
-    <td mat-cell *matCellDef="let business">{{ business.description }}</td>
-  </ng-container>
-  <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
-</table>
       </div>
     </div>
   </div>
