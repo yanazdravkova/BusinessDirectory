@@ -10,15 +10,15 @@ const routes: Routes = [];
     RouterModule.forRoot([
       {
         path: '',
-        redirectTo: '/list-view',
+        redirectTo: '/business-directory',
         pathMatch: 'full'
       },
       {
-        path: 'list-view',
+        path: 'business-directory',
         component: ListViewComponent
       },
       {
-        path: 'item-view',
+        path: 'business/:id',
         component: ItemViewComponent
       }
     ])],

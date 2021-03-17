@@ -16,6 +16,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { effects } from './effects';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { effects } from './effects';
     HttpClientModule,
     MatToolbarModule,
     MatTableModule,
+    FlexLayoutModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(effects),
     !environment.production ? StoreDevtoolsModule.instrument() : []

@@ -28,7 +28,7 @@ export class ListViewComponent implements OnInit, OnDestroy {
   }
 
   onRowClicked(row: Business) {
-    this.router.navigateByUrl('/item-view', {state: {data: row}})
+    this.router.navigateByUrl(`/business/${row.id}`)
   }
 
   ngOnDestroy() {
