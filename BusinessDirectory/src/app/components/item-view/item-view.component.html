@@ -7,7 +7,8 @@
   <div fxFlex="45" class="image-container">
     <img [src]="business?.image" />
   </div>
-  <div fxFlex="55" fxLayout="row" class="info-container">
+
+  <div fxFlex="50" fxLayout="row" class="info-container">
     <div fxFlex="50" fxLayout="row" class="address-and-contacts">
       <div fxFlex="50">
         <p class="title">Address</p>
@@ -22,14 +23,24 @@
         <p>{{ business?.email }}</p>
       </div>
     </div>
-    <div fxFlex="50" fxLayout="column" fxLayoutGap="30px" class="nearby-places">
-      <p class="title">Nearby Places</p>
-      <div fxLayout="column wrap" fxFlex="80" fxFlexAlign="space-between" fxLayoutGap="10px">
-        <div *ngFor="let place of nearbyPlaces" fxLayoutAlign="space-around center" fxFlex="20" class="place">
-          <div fxFlex="30">{{place.name}}</div>
-          <div fxFlex="70">{{place.address?.country}}</div>
-        </div>
 
+    <div fxFlex="50" fxLayout="column" class="nearby-places">
+      <p class="title">Nearby Places</p>
+      <div
+        fxLayout="column wrap"
+        fxFlex="80"
+        fxFlexAlign="space-between"
+        fxLayoutGap="10px"
+      >
+        <div
+          *ngFor="let place of nearbyPlaces"
+          fxLayoutAlign="space-around center"
+          fxFlex="20"
+          class="place"
+        >
+          <div fxFlex="30">{{ place.name }}</div>
+          <div fxFlex="70">{{ place.address?.street }}, {{ place.address?.city }} {{ place.address?.zip }}</div>
+        </div>
       </div>
     </div>
   </div>
