@@ -1,8 +1,6 @@
 .app-container {
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
   background-color: #f8f8fa;
+  height: 100%;
 }
 
 .header-container {
@@ -10,7 +8,6 @@
 }
 
 .content-container {
-  flex: 1 auto;
   overflow: auto;
   margin: 40px 50px 0px 50px;
 }
