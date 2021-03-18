@@ -25,17 +25,8 @@
 
     <div fxFlex="50" fxLayout="column" class="nearby-places">
       <p class="title">Nearby Places</p>
-      <div
-        fxLayout="column wrap"
-        fxFlex="80"
-        fxLayoutGap="10px"
-      >
-        <div
-          *ngFor="let place of nearbyPlacesToDisplay"
-          fxLayoutAlign="space-around center"
-          fxFlex="20"
-          class="place"
-        >
+      <div fxLayout="column" fxFlex="80" fxLayoutGap="10px">
+        <div *ngFor="let place of nearbyPlacesToDisplay" class="place">
           <div fxFlex="30">{{ place.name }}</div>
           <div fxFlex="70">{{ formatNearbyPlaceDescription(place) }}</div>
         </div>
@@ -43,4 +34,3 @@
     </div>
   </div>
 </div>
-
