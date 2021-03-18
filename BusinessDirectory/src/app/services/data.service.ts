@@ -21,9 +21,9 @@ export class DataService {
     this.store.dispatch(new DataActions.LoadDataBegin());
   }
 
-  getData() {
-    return this.store.select(getDataState);
-  }
+  // getData() {
+  //   return this.store.select(getDataState);
+  // }
 
   getItems() {
     return this.store.select(getAllItems);

@@ -20,8 +20,8 @@ export class ListViewComponent implements OnInit, OnDestroy {
     private router: Router) { }
 
   ngOnInit(): void {
-    const getDataSub = this.dataService.getData().subscribe(data => {
-      this.businessArray = data.items;
+    const getDataSub = this.dataService.getItems().subscribe(items => {
+      this.businessArray = items;
     });
 
     this.subscriptions.push(getDataSub);
