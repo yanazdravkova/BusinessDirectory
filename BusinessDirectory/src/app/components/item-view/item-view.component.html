@@ -13,8 +13,7 @@
       <div fxFlex="50">
         <p class="title">Address</p>
         <p>
-          {{ business?.address?.number }} {{ business?.address?.street }},
-          {{ business?.address?.zip }}
+          {{ formattedBusinessAddress }}
         </p>
       </div>
       <div fxFlex="50">
@@ -29,19 +28,19 @@
       <div
         fxLayout="column wrap"
         fxFlex="80"
-        fxFlexAlign="space-between"
         fxLayoutGap="10px"
       >
         <div
-          *ngFor="let place of nearbyPlaces"
+          *ngFor="let place of nearbyPlacesToDisplay"
           fxLayoutAlign="space-around center"
           fxFlex="20"
           class="place"
         >
           <div fxFlex="30">{{ place.name }}</div>
-          <div fxFlex="70">{{ place.address?.street }}, {{ place.address?.city }} {{ place.address?.zip }}</div>
+          <div fxFlex="70">{{ formatNearbyPlaceDescription(place) }}</div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
